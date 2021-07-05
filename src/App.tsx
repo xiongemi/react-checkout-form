@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import { initI18n } from './services/i18n';
+import AppRoutes from './routes/app-routes';
+
+const defaultLanguage = 'en-GB';
+initI18n('/i18n/{{lng}}.json', defaultLanguage);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<CircularProgress />}>
+      <AppRoutes />
+    </Suspense>
   );
 }
 
