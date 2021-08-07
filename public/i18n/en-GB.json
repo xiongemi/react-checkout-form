@@ -1,6 +1,7 @@
 {
   "checkout": {
     "shippingAddress": "Shipping Address",
+    "billingAddress": "Billing Address",
     "continue": "Continue"
   },
   "address": {
