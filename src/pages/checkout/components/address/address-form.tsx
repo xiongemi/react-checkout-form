@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Grid } from '@material-ui/core';
 import { TextField } from 'formik-material-ui';
 import { Field, FormikErrors, FormikTouched } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { AddressFormValues } from './address-form-values.interface';
 
@@ -12,16 +13,18 @@ export interface AddressFormProps {
 }
 
 export const AddressForm: FunctionComponent<AddressFormProps> = ({
-  formName = 'Address',
+  formName = 'address',
   errors,
   touched,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
         <Field
           component={TextField}
-          label="First Name"
+          label={t('address.firstName')}
           name={`${formName}.firstName`}
           variant="outlined"
           error={touched?.firstName && !!errors?.firstName}
@@ -32,7 +35,7 @@ export const AddressForm: FunctionComponent<AddressFormProps> = ({
       <Grid item xs={12} sm={6}>
         <Field
           component={TextField}
-          label="Last Name"
+          label={t('address.lastName')}
           name={`${formName}.lastName`}
           variant="outlined"
           error={touched?.lastName && !!errors?.lastName}
@@ -43,18 +46,18 @@ export const AddressForm: FunctionComponent<AddressFormProps> = ({
       <Grid item xs={12}>
         <Field
           component={TextField}
-          label="Addess line 1"
+          label={t('address.addressLine1')}
           name={`${formName}.addressLine1`}
           variant="outlined"
           error={touched?.addressLine1 && !!errors?.addressLine1}
-          helperText={touched?.addressLine1 && errors?.addressLine1}
+          helperText={touched?.addressLine1 && !!errors?.addressLine1}
           fullWidth
         />
       </Grid>
       <Grid item xs={12}>
         <Field
           component={TextField}
-          label="Addess line 2"
+          label={t('address.addressLine2')}
           name={`${formName}.addressLine2`}
           variant="outlined"
           error={touched?.addressLine2 && !!errors?.addressLine2}
@@ -65,7 +68,7 @@ export const AddressForm: FunctionComponent<AddressFormProps> = ({
       <Grid item xs={12} sm={6}>
         <Field
           component={TextField}
-          label="City"
+          label={t('address.city')}
           name={`${formName}.city`}
           variant="outlined"
           error={touched?.city && !!errors?.city}
@@ -76,7 +79,7 @@ export const AddressForm: FunctionComponent<AddressFormProps> = ({
       <Grid item xs={12} sm={6}>
         <Field
           component={TextField}
-          label="Province/State"
+          label={t('address.provinceState')}
           name={`${formName}.provinceState`}
           variant="outlined"
           error={touched?.provinceState && !!errors?.provinceState}
@@ -87,7 +90,7 @@ export const AddressForm: FunctionComponent<AddressFormProps> = ({
       <Grid item xs={12} sm={6}>
         <Field
           component={TextField}
-          label="Country"
+          label={t('address.country')}
           name={`${formName}.country`}
           variant="outlined"
           error={touched?.country && !!errors?.country}
@@ -98,7 +101,7 @@ export const AddressForm: FunctionComponent<AddressFormProps> = ({
       <Grid item xs={12} sm={6}>
         <Field
           component={TextField}
-          label="Zip/Postal Code"
+          label={t('address.zipPostalCode')}
           name={`${formName}.zipPostalCode`}
           variant="outlined"
           error={touched?.zipPostalCode && !!errors?.zipPostalCode}

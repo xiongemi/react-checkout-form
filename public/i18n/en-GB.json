@@ -1,5 +1,21 @@
 {
   "checkout": {
-    "delivery": "Delivery"
+    "shippingAddress": "Shipping Address",
+    "continue": "Continue"
+  },
+  "address": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "addressLine1": "Address Line 1",
+    "addressLine2": "Address Line 2",
+    "city": "City",
+    "provinceState": "Province/State",
+    "country": "Country",
+    "zipPostalCode": "Zip/Postal Code"
+  },
+  "errorMessages": {
+    "required": "{{- fieldName}} is required",
+    "tooLong": "Too long, max length is {{max}}",
+    "tooShort": "Too short, min length is {{min}}"
   }
 }

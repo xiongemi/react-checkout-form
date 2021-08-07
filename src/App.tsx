@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react';
 import { Container, CircularProgress } from '@material-ui/core';
 
-import { initI18n } from './services/i18n';
+import { changeLanguage, initI18n } from './services/i18n';
 import AppRoutes from './routes/app-routes';
 
 const defaultLanguage = 'en-GB';
 initI18n('/i18n/{{lng}}.json', defaultLanguage);
+changeLanguage(defaultLanguage);
 
 function App() {
   return (
