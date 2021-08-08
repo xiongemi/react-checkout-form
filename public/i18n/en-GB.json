@@ -1,8 +1,19 @@
 {
   "checkout": {
+    "delivery": "Delivery",
+    "payment": "Payment",
+    "confirmation": "Confirmation",
     "shippingAddress": "Shipping Address",
     "billingAddress": "Billing Address",
-    "continue": "Continue"
+    "continue": "Continue",
+    "previous": "Previous",
+    "sameAsShipping": "My billing address is the same as my shipping address",
+    "shippingMethod": {
+      "title": "Shipping Method",
+      "free": "Free (expect to recive in 5-7 days)",
+      "express": "Express (expect to receive in 3-5 days)",
+      "nextDay": "Next Day"
+    }
   },
   "address": {
     "firstName": "First Name",

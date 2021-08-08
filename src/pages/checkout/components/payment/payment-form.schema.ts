@@ -1,9 +1,13 @@
 import { TFunction } from 'i18next';
-import { object } from 'yup';
+import { boolean, object } from 'yup';
 
 import { addressFormSchema } from '../address/address-form.schema';
 
 export const paymentFormSchema = (t: TFunction) =>
   object().shape({
-    billingAddress: addressFormSchema(t),
+    sameAsShipping: boolean(),
+    billingAddress: object().when('sameAsShipping', {
+      is: (sameAsShipping: boolean) => !sameAsShipping,
+      then: addressFormSchema(t),
+    }),
   });
