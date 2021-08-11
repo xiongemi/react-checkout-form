@@ -1,19 +1,19 @@
 import { Box, Button, FormControl, Typography } from '@material-ui/core';
-import { Field, Form, Formik } from 'formik';
-import React, { FunctionComponent } from 'react';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useTranslation } from 'react-i18next';
 import { styled } from '@material-ui/core/styles';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { Field, Form, Formik } from 'formik';
 import { CheckboxWithLabel } from 'formik-material-ui';
+import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
 import { AppRoutePath } from '../../../../routes/app-route-path';
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 import { AddressForm } from '../address/address-form';
 
-import { paymentFormSchema } from './payment-form.schema';
 import { initialPaymentFormValues } from './payment-form-values.initial';
+import { paymentFormSchema } from './payment-form.schema';
 
 const PaymentFormControl = styled(FormControl)(({ theme }) => ({
   marginTop: theme.spacing(2),

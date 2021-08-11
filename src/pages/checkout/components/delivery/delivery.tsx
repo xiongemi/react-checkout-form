@@ -1,38 +1,60 @@
 import { Box, Button, FormControl, Typography } from '@material-ui/core';
+import { styled } from '@material-ui/core/styles';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import ClearIcon from '@material-ui/icons/Clear';
 import { Form, Formik } from 'formik';
 import React, { FunctionComponent } from 'react';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { styled } from '@material-ui/core/styles';
 
 import { AppRoutePath } from '../../../../routes/app-route-path';
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 import { AddressForm } from '../address/address-form';
 
-import { deliveryFormSchema } from './delivery-form.schema';
-import { initialDevlieryFormValues } from './delivery-form-values.initial';
 import { ShippingMethod } from './components/shipping-method';
+import { DeliveryFormValues } from './delivery-form-values.interface';
+import { deliveryFormSchema } from './delivery-form.schema';
+import {
+  DeliveryFormProps,
+  mapDispatchToProps,
+  mapStateToProps,
+} from './delivery.props';
 
 const DeliveryFormControl = styled(FormControl)(({ theme }) => ({
   marginTop: theme.spacing(2),
 }));
 
-export const Delivery: FunctionComponent = () => {
+const Delivery: FunctionComponent<DeliveryFormProps> = ({
+  deliveryForm,
+  submitDeliveryForm,
+  clearDeliveryForm,
+}) => {
   const { t } = useTranslation();
   const history = useHistory();
-  const submitForm = () => {
+  const submitForm = (values: DeliveryFormValues) => {
+    submitDeliveryForm(values);
     history.push(AppRoutePath.Checkout + CheckoutRoutePath.Payment);
   };
 
   return (
     <Formik
+      enableReinitialize={true}
       validationSchema={deliveryFormSchema(t)}
-      initialValues={initialDevlieryFormValues}
+      initialValues={deliveryForm}
       onSubmit={submitForm}
     >
       {({ errors, touched }) => (
         <Form>
+          <Button
+            type="reset"
+            variant="contained"
+            endIcon={<ClearIcon />}
+            size="large"
+            onClick={clearDeliveryForm}
+          >
+            {t('checkout.clear')}
+          </Button>
           <DeliveryFormControl>
             <Typography variant="h5" component="legend" gutterBottom>
               {t('checkout.shippingAddress')}
@@ -65,3 +87,5 @@ export const Delivery: FunctionComponent = () => {
     </Formik>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Delivery);

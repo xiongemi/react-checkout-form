@@ -1,8 +1,10 @@
-import React, { Suspense } from 'react';
 import { Container, CircularProgress } from '@material-ui/core';
+import React, { Suspense } from 'react';
+import { Provider } from 'react-redux';
 
-import { changeLanguage, initI18n } from './services/i18n';
 import AppRoutes from './routes/app-routes';
+import { changeLanguage, initI18n } from './services/i18n';
+import { rootStore } from './store/root.store';
 
 const defaultLanguage = 'en-GB';
 initI18n('/i18n/{{lng}}.json', defaultLanguage);
@@ -12,7 +14,9 @@ function App() {
   return (
     <Container maxWidth="lg">
       <Suspense fallback={<CircularProgress />}>
-        <AppRoutes />
+        <Provider store={rootStore}>
+          <AppRoutes />
+        </Provider>
       </Suspense>
     </Container>
   );
