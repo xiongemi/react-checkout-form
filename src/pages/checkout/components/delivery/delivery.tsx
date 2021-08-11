@@ -22,6 +22,7 @@ import {
 } from './delivery.props';
 
 const DeliveryFormControl = styled(FormControl)(({ theme }) => ({
+  display: 'block',
   marginTop: theme.spacing(2),
 }));
 
@@ -46,15 +47,17 @@ const Delivery: FunctionComponent<DeliveryFormProps> = ({
     >
       {({ errors, touched }) => (
         <Form>
-          <Button
-            type="reset"
-            variant="contained"
-            endIcon={<ClearIcon />}
-            size="large"
-            onClick={clearDeliveryForm}
-          >
-            {t('checkout.clear')}
-          </Button>
+          <DeliveryFormControl>
+            <Button
+              type="reset"
+              variant="contained"
+              endIcon={<ClearIcon />}
+              size="large"
+              onClick={clearDeliveryForm}
+            >
+              {t('checkout.clear')}
+            </Button>
+          </DeliveryFormControl>
           <DeliveryFormControl>
             <Typography variant="h5" component="legend" gutterBottom>
               {t('checkout.shippingAddress')}

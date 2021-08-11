@@ -2,38 +2,65 @@ import { Box, Button, FormControl, Typography } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import ClearIcon from '@material-ui/icons/Clear';
 import { Field, Form, Formik } from 'formik';
 import { CheckboxWithLabel } from 'formik-material-ui';
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { AppRoutePath } from '../../../../routes/app-route-path';
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 import { AddressForm } from '../address/address-form';
 
-import { initialPaymentFormValues } from './payment-form-values.initial';
+import { PaymentFormValues } from './payment-form-values.interface';
 import { paymentFormSchema } from './payment-form.schema';
+import {
+  mapDispatchToProps,
+  mapStateToProps,
+  PaymentFormProps,
+} from './payment.props';
 
 const PaymentFormControl = styled(FormControl)(({ theme }) => ({
+  display: 'block',
   marginTop: theme.spacing(2),
 }));
 
-export const Payment: FunctionComponent = () => {
+export const Payment: FunctionComponent<PaymentFormProps> = ({
+  paymentForm,
+  submitPaymentForm,
+  clearPaymentForm,
+}) => {
   const { t } = useTranslation();
   const history = useHistory();
   const goBack = () => {
     history.push(AppRoutePath.Checkout + CheckoutRoutePath.Delivery);
   };
+  const submitForm = (values: PaymentFormValues) => {
+    submitPaymentForm(values);
+    history.push(AppRoutePath.Checkout + CheckoutRoutePath.Confirmation);
+  };
 
   return (
     <Formik
       validationSchema={paymentFormSchema(t)}
-      initialValues={initialPaymentFormValues}
-      onSubmit={(value: any) => console.log(value)}
+      initialValues={paymentForm}
+      onSubmit={submitForm}
     >
       {({ errors, touched, values }) => (
         <Form>
+          <PaymentFormControl>
+            <Button
+              type="reset"
+              variant="contained"
+              endIcon={<ClearIcon />}
+              size="large"
+              onClick={clearPaymentForm}
+            >
+              {t('checkout.clear')}
+            </Button>
+          </PaymentFormControl>
           <PaymentFormControl>
             <Typography variant="h5" component="legend" gutterBottom>
               {t('checkout.billingAddress')}
@@ -83,3 +110,5 @@ export const Payment: FunctionComponent = () => {
     </Formik>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Payment);
