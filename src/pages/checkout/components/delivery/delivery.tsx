@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom';
 import { AppRoutePath } from '../../../../routes/app-route-path';
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 import { AddressForm } from '../address/address-form';
+import { CheckoutStepper } from '../checkout-stepper/checkout-stepper';
 
 import { ShippingMethod } from './components/shipping-method';
 import { DeliveryFormValues } from './delivery-form-values.interface';
@@ -39,55 +40,58 @@ const Delivery: FunctionComponent<DeliveryFormProps> = ({
   };
 
   return (
-    <Formik
-      enableReinitialize={true}
-      validationSchema={deliveryFormSchema(t)}
-      initialValues={deliveryForm}
-      onSubmit={submitForm}
-    >
-      {({ errors, touched }) => (
-        <Form>
-          <DeliveryFormControl>
-            <Button
-              type="reset"
-              variant="contained"
-              endIcon={<ClearIcon />}
-              size="large"
-              onClick={clearDeliveryForm}
-            >
-              {t('checkout.clear')}
-            </Button>
-          </DeliveryFormControl>
-          <DeliveryFormControl>
-            <Typography variant="h5" component="legend" gutterBottom>
-              {t('checkout.shippingAddress')}
-            </Typography>
-            <AddressForm
-              formName="shippingAddress"
-              errors={errors.shippingAddress}
-              touched={touched.shippingAddress}
-            />
-          </DeliveryFormControl>
-          <DeliveryFormControl>
-            <Typography variant="h5" component="legend" gutterBottom>
-              {t('checkout.shippingMethod.title')}
-            </Typography>
-            <ShippingMethod />
-          </DeliveryFormControl>
-          <Box textAlign="right" mt={2}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              endIcon={<ArrowRightAltIcon />}
-              size="large"
-            >
-              {t('checkout.continue')}
-            </Button>
-          </Box>
-        </Form>
-      )}
-    </Formik>
+    <>
+      <CheckoutStepper />
+      <Formik
+        enableReinitialize={true}
+        validationSchema={deliveryFormSchema(t)}
+        initialValues={deliveryForm}
+        onSubmit={submitForm}
+      >
+        {({ errors, touched }) => (
+          <Form>
+            <DeliveryFormControl>
+              <Button
+                type="reset"
+                variant="contained"
+                endIcon={<ClearIcon />}
+                size="large"
+                onClick={clearDeliveryForm}
+              >
+                {t('checkout.clear')}
+              </Button>
+            </DeliveryFormControl>
+            <DeliveryFormControl>
+              <Typography variant="h5" component="legend" gutterBottom>
+                {t('checkout.shippingAddress')}
+              </Typography>
+              <AddressForm
+                formName="shippingAddress"
+                errors={errors.shippingAddress}
+                touched={touched.shippingAddress}
+              />
+            </DeliveryFormControl>
+            <DeliveryFormControl>
+              <Typography variant="h5" component="legend" gutterBottom>
+                {t('checkout.shippingMethod.title')}
+              </Typography>
+              <ShippingMethod />
+            </DeliveryFormControl>
+            <Box textAlign="right" mt={2}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                endIcon={<ArrowRightAltIcon />}
+                size="large"
+              >
+                {t('checkout.continue')}
+              </Button>
+            </Box>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
 

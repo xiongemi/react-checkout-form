@@ -1,19 +1,22 @@
 import { Box, Paper } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FunctionComponent } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { CheckoutStepper } from './components/checkout-stepper/checkout-stepper';
 import CheckoutRoutes from './routes/checkout-routes';
 
 export const Checkout: FunctionComponent = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log('checkout route has been changed');
+  }, [location.pathname]);
+
   return (
-    <>
-      <CheckoutStepper />
-      <Paper>
-        <Box p={3}>
-          <CheckoutRoutes />
-        </Box>
-      </Paper>
-    </>
+    <Paper>
+      <Box p={3}>
+        <CheckoutRoutes />
+      </Box>
+    </Paper>
   );
 };

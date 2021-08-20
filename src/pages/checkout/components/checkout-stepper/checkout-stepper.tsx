@@ -1,23 +1,27 @@
 import { Step, StepLabel, Stepper } from '@material-ui/core';
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 
 export const CheckoutStepper: FunctionComponent = () => {
   const { t } = useTranslation();
-  let { pathname } = useLocation();
+  let { path } = useRouteMatch();
+  const [activeStep, setActiveStep] = useState<number>(0);
 
-  let activeStep = 0;
-  if (pathname.includes(CheckoutRoutePath.Delivery)) {
-    activeStep = 0;
-  } else if (pathname.includes(CheckoutRoutePath.Payment)) {
-    activeStep = 1;
-  } else {
-    activeStep = 2;
-  }
+  useEffect(() => {
+    if (path.includes(CheckoutRoutePath.Delivery)) {
+      setActiveStep(0);
+    } else if (path.includes(CheckoutRoutePath.Payment)) {
+      setActiveStep(1);
+    } else {
+      setActiveStep(2);
+    }
+  }, [path]);
 
   return (
     <Stepper alternativeLabel activeStep={activeStep}>
