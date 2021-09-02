@@ -1,0 +1,51 @@
+{
+  "checkout": {
+    "delivery": "Delivery",
+    "payment": "Payment",
+    "confirmation": "Confirmation",
+    "shippingAddress": "Shipping Address",
+    "billingAddress": "Billing Address",
+    "continue": "Continue",
+    "previous": "Previous",
+    "clear": "Clear",
+    "sameAsShipping": "My billing address is the same as my shipping address",
+    "shippingMethod": {
+      "title": "Shipping Method",
+      "free": "Free (expect to recive in 5-7 days)",
+      "express": "Express (expect to receive in 3-5 days)",
+      "nextDay": "Next Day"
+    },
+    "customerInfo": "Customer Info",
+    "creditCard": "Credit Card"
+  },
+  "signup": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "guestCheckout": "Guest Checkout"
+  },
+  "address": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "addressLine1": "Address Line 1",
+    "addressLine2": "Address Line 2",
+    "city": "City",
+    "provinceState": "Province/State",
+    "country": "Country",
+    "zipPostalCode": "Zip/Postal Code"
+  },
+  "creditCard": {
+    "cardNumber": "Card Number",
+    "expiryDate": "Expiry Date",
+    "securityCode": "Security Code"
+  },
+  "errorMessages": {
+    "required": "{{- fieldName}} is required",
+    "tooLong": "Too long, max length is {{max}}",
+    "tooShort": "Too short, min length is {{min}}",
+    "email": "Invalid email",
+    "password": "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character",
+    "confirmPassword": "Confirm password must match",
+    "invalidFormat": "Invalid Format"
+  }
+}
