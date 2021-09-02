@@ -3,24 +3,24 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
+import { CheckoutStepper } from '../checkout-stepper/checkout-stepper';
+
 import { ConfirmationProps, mapStateToProps } from './confirmation.props';
 
-const Confirmation: FunctionComponent<ConfirmationProps> = ({
-  deliveryForm,
-  paymentForm,
-}: ConfirmationProps) => {
+const Confirmation: FunctionComponent<ConfirmationProps> = ({}) => {
   const { t } = useTranslation();
   return (
     <>
-      <Typography variant="h2" gutterBottom>
+      <CheckoutStepper />
+      <Typography variant="h3" gutterBottom>
         {t('checkout.delivery')}
       </Typography>
 
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         {t('checkout.payment')}
       </Typography>
     </>
   );
 };
 
-export default connect(mapStateToProps, null)(Confirmation);
+export default connect(mapStateToProps)(Confirmation);

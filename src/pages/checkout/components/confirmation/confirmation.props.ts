@@ -10,7 +10,7 @@ const mapStateToProps = (state: RootState) => {
 
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 
-type ConfirmationProps = mapStateToPropsType;
+type ConfirmationProps = mapStateToPropsType & {};
 
 export { mapStateToProps };
 export type { ConfirmationProps };
