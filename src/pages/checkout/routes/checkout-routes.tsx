@@ -7,7 +7,7 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 
-import { Confirmation } from '../components/confirmation/confirmation';
+import Confirmation from '../components/confirmation/confirmation';
 import Delivery from '../components/delivery/delivery';
 import Payment from '../components/payment/payment';
 

@@ -12,6 +12,7 @@ import { AppRoutePath } from '../../../../routes/app-route-path';
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 import { AddressForm } from '../address/address-form';
 import { CheckoutStepper } from '../checkout-stepper/checkout-stepper';
+import { SignupForm } from '../signup/signup-form';
 
 import { ShippingMethod } from './components/shipping-method';
 import { DeliveryFormValues } from './delivery-form-values.interface';
@@ -48,7 +49,7 @@ const Delivery: FunctionComponent<DeliveryFormProps> = ({
         initialValues={deliveryForm}
         onSubmit={submitForm}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, values }) => (
           <Form>
             <DeliveryFormControl>
               <Button
@@ -76,6 +77,17 @@ const Delivery: FunctionComponent<DeliveryFormProps> = ({
                 {t('checkout.shippingMethod.title')}
               </Typography>
               <ShippingMethod />
+            </DeliveryFormControl>
+            <DeliveryFormControl>
+              <Typography variant="h5" component="legend" gutterBottom>
+                {t('checkout.customerInfo')}
+              </Typography>
+              <SignupForm
+                formName="signup"
+                errors={errors.signup}
+                touched={touched.signup}
+                values={values.signup}
+              />
             </DeliveryFormControl>
             <Box textAlign="right" mt={2}>
               <Button

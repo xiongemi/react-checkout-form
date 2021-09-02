@@ -14,6 +14,7 @@ import { AppRoutePath } from '../../../../routes/app-route-path';
 import { CheckoutRoutePath } from '../../routes/checkout-route-path';
 import { AddressForm } from '../address/address-form';
 import { CheckoutStepper } from '../checkout-stepper/checkout-stepper';
+import { CreditCard } from '../credit-card/credit-card';
 
 import { PaymentFormValues } from './payment-form-values.interface';
 import { paymentFormSchema } from './payment-form.schema';
@@ -51,7 +52,7 @@ export const Payment: FunctionComponent<PaymentFormProps> = ({
         initialValues={paymentForm}
         onSubmit={submitForm}
       >
-        {({ errors, touched, values }) => (
+        {({ errors, touched, values, handleChange, setFieldTouched }) => (
           <Form>
             <PaymentFormControl>
               <Button
@@ -81,6 +82,18 @@ export const Payment: FunctionComponent<PaymentFormProps> = ({
                   touched={touched.billingAddress}
                 />
               )}
+            </PaymentFormControl>
+            <PaymentFormControl>
+              <Typography variant="h5" component="legend" gutterBottom>
+                {t('checkout.creditCard')}
+              </Typography>
+              <CreditCard
+                formName="creditCard"
+                errors={errors.creditCard}
+                touched={touched.creditCard}
+                values={values.creditCard}
+                handleChange={handleChange}
+              />
             </PaymentFormControl>
             <Box
               textAlign="right"
