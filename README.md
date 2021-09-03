@@ -1,6 +1,10 @@
 # React Checkout Form
 
+![tech stack: react, material-ui, formik and yup](https://github.com/xiongemi/react-checkout-form/blob/main/screenshots/logo.png?raw=true)
+
 This is a checkout form built using React, material-ui, formik and yup.
+
+![screenshot](https://github.com/xiongemi/react-checkout-form/blob/main/screenshots/screenshot.png?raw=true)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
