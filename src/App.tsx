@@ -7,7 +7,7 @@ import { changeLanguage, initI18n } from './services/i18n';
 import { rootStore } from './store/root.store';
 
 const defaultLanguage = 'en-GB';
-initI18n('/i18n/{{lng}}.json', defaultLanguage);
+initI18n(process.env.PUBLIC_URL + '/i18n/{{lng}}.json', defaultLanguage);
 changeLanguage(defaultLanguage);
 
 function App() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 import { Checkout } from '../pages/checkout/checkout';
 
@@ -7,7 +7,7 @@ import { AppRoutePath } from './app-route-path';
 
 export default function AppRoutes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path={AppRoutePath.Checkout}>
           <Checkout />

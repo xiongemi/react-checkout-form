@@ -17,7 +17,7 @@ export default function CheckoutRoutes() {
   let { path } = useRouteMatch();
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path={path + CheckoutRoutePath.Delivery}>
           <Delivery />
