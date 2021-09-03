@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# React Checkout Form
+
+This is a checkout form built using React, material-ui, formik and yup.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -64,6 +66,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+To deploy to github page, run `npm run deploy`.
 
 ### `yarn build` fails to minify
 
