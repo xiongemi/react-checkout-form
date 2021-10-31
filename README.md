@@ -1,8 +1,8 @@
 # React Checkout Form
 
-![tech stack: react, material-ui, formik and yup](https://github.com/xiongemi/react-checkout-form/blob/main/screenshots/logo.png?raw=true)
+![tech stack: react, mui, ypu, formik and formik-mui](https://github.com/xiongemi/react-checkout-form/blob/main/screenshots/logo.png?raw=true)
 
-This is a checkout form built using React, material-ui, formik and yup.
+This is a checkout form built using React, MUI, formik, yup and formik-mui.
 
 ![screenshot](https://github.com/xiongemi/react-checkout-form/blob/main/screenshots/screenshot.png?raw=true)
 
