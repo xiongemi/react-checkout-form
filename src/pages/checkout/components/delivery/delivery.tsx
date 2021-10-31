@@ -1,7 +1,7 @@
-import { Box, Button, FormControl, Typography } from '@material-ui/core';
-import { styled } from '@material-ui/core/styles';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import ClearIcon from '@material-ui/icons/Clear';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Box, Button, FormControl, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { Form, Formik } from 'formik';
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';

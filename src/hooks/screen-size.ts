@@ -1,4 +1,4 @@
-import { useTheme, useMediaQuery, Theme } from '@material-ui/core';
+import { useTheme, useMediaQuery, Theme } from '@mui/material';
 
 export function IsScreenSizeXs() {
   const theme: Theme = useTheme();

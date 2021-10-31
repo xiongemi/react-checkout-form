@@ -1,10 +1,10 @@
-import { Box, Button, FormControl, Typography } from '@material-ui/core';
-import { styled } from '@material-ui/core/styles';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import ClearIcon from '@material-ui/icons/Clear';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Box, Button, FormControl, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { Field, Form, Formik } from 'formik';
-import { CheckboxWithLabel } from 'formik-material-ui';
+import { CheckboxWithLabel } from 'formik-mui';
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';

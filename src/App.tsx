@@ -1,4 +1,4 @@
-import { Container, CircularProgress } from '@material-ui/core';
+import { Container, CircularProgress } from '@mui/material';
 import React, { Suspense } from 'react';
 import { Provider } from 'react-redux';
 

@@ -1,6 +1,6 @@
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { Field, FormikErrors, FormikTouched } from 'formik';
-import { TextField } from 'formik-material-ui';
+import { TextField } from 'formik-mui';
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 

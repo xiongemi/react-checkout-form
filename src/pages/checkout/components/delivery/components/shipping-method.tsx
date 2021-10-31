@@ -1,6 +1,6 @@
-import { FormControlLabel, Radio } from '@material-ui/core';
+import { FormControlLabel, Radio } from '@mui/material';
 import { Field } from 'formik';
-import { RadioGroup } from 'formik-material-ui';
+import { RadioGroup } from 'formik-mui';
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 

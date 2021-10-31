@@ -1,4 +1,4 @@
-import { Step, StepLabel, Stepper } from '@material-ui/core';
+import { Step, StepLabel, Stepper } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
