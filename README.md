@@ -6,6 +6,8 @@ This is a checkout form built using React, MUI, formik, yup and formik-mui.
 
 ![screenshot](https://github.com/xiongemi/react-checkout-form/blob/main/screenshots/screenshot.png?raw=true)
 
+Blog: https://emilyxiong.medium.com/step-to-step-guide-on-building-a-checkout-form-in-react-5f28af1c1fdf
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
