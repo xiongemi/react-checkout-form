@@ -20,17 +20,17 @@ export const ShippingMethod: FunctionComponent<ShippingMethodProps> = ({
       <FormControlLabel
         value={ShippingMethodEnum.free}
         control={<Radio />}
-        label={t('checkout.shippingMethod.free') as string}
+        label={t('checkout.shippingMethod.free')}
       />
       <FormControlLabel
         value={ShippingMethodEnum.express}
         control={<Radio />}
-        label={t('checkout.shippingMethod.express') as string}
+        label={t('checkout.shippingMethod.express')}
       />
       <FormControlLabel
         value={ShippingMethodEnum.nextDay}
         control={<Radio />}
-        label={t('checkout.shippingMethod.nextDay') as string}
+        label={t('checkout.shippingMethod.nextDay')}
       />
     </Field>
   );
